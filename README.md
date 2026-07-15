@@ -1,3 +1,5 @@
+https://dhra-goel.github.io/weather-app/
+
 # Weather Dashboard
 
 A responsive weather dashboard built using HTML, CSS and Vanilla JavaScript. The application fetches live weather information using the OpenWeatherMap API and presents current conditions along with hourly and multi-day forecasts.
