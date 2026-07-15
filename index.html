@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Dashboard</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+    <div class="background-overlay"></div>
+
+    <main class="app">
+
+        <header>
+
+            <h1>Weather Dashboard</h1>
+
+            <div class="search-area">
+
+                <input
+                    id="cityInput"
+                    type="text"
+                    placeholder="Search city">
+
+                <button id="searchBtn">
+                    Search
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <section class="unit-section">
+
+            <span>°C</span>
+
+            <label class="toggle">
+
+                <input
+                    type="checkbox"
+                    id="unitSwitch">
+
+                <span class="slider"></span>
+
+            </label>
+
+            <span>°F</span>
+
+        </section>
+
+
+        <section
+            id="weatherCard"
+            class="weather-card">
+
+        </section>
+
+
+        <section>
+
+            <h2>Hourly Forecast</h2>
+
+            <div
+                id="hourlyContainer"
+                class="hourly-container">
+
+            </div>
+
+        </section>
+
+
+        <section>
+
+            <h2>7 Day Forecast</h2>
+
+            <div
+                id="weeklyContainer"
+                class="weekly-container">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="rain"></div>
+
+    <div id="snow"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
