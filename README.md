@@ -36,7 +36,7 @@ weather-dashboard/
 1. Clone the repository
 
 ```
-
+https://github.com/Dhra-Goel/weather-app.git
 ```
 
 2. Open `script.js`
