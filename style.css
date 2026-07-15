@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    transition:.5s ease;
+}
+
+body.night{
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+}
+
+.background-overlay{
+    position:fixed;
+    inset:0;
+    backdrop-filter:blur(3px);
+    z-index:0;
+}
+
+.app{
+    position:relative;
+    z-index:5;
+    width:100%;
+    max-width:470px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(20px);
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+header h1{
+    text-align:center;
+    color:#fff;
+    margin-bottom:24px;
+    font-size:2rem;
+    font-weight:600;
+}
+
+.search-area{
+    display:flex;
+    gap:10px;
+}
+
+.search-area input{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-area button{
+    border:none;
+    padding:14px 18px;
+    border-radius:14px;
+    cursor:pointer;
+    background:#0f172a;
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
+}
+
+.search-area button:hover{
+    transform:translateY(-2px);
+}
+
+.unit-section{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:8px;
+    margin:20px 0;
+    color:white;
+    font-weight:500;
+}
+
+.toggle{
+    position:relative;
+    width:48px;
+    height:24px;
+}
+
+.toggle input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    background:#d1d5db;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.slider::before{
+    content:"";
+    position:absolute;
+    width:18px;
+    height:18px;
+    left:3px;
+    top:3px;
+    background:white;
+    border-radius:50%;
+    transition:.3s;
+}
+
+input:checked + .slider{
+    background:#2563eb;
+}
+
+input:checked + .slider::before{
+    transform:translateX(24px);
+}
+
+.weather-card{
+    background:rgba(255,255,255,.15);
+    border-radius:18px;
+    padding:22px;
+    color:white;
+    text-align:center;
+    margin-bottom:22px;
+    display:none;
+}
+
+.weather-card.active{
+    display:block;
+}
+
+.weather-card h2{
+    margin-bottom:10px;
+    font-size:1.6rem;
+}
+
+.weather-card img{
+    width:80px;
+    margin:10px auto;
+}
+
+.weather-card p{
+    margin:8px 0;
+    font-size:15px;
+}
+
+section h2{
+    color:white;
+    margin-bottom:14px;
+    font-size:1.1rem;
+}
+
+.hourly-container{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding-bottom:10px;
+}
+
+.hourly-container::-webkit-scrollbar{
+    display:none;
+}
+
+.hour-card{
+    min-width:90px;
+    background:rgba(255,255,255,.15);
+    border-radius:15px;
+    padding:14px;
+    text-align:center;
+    color:white;
+}
+
+.hour-card img{
+    width:42px;
+}
+
+.hour-card h4{
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.hour-card p{
+    margin-top:6px;
+    font-weight:600;
+}
+
+.weekly-container{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:10px;
+}
+
+.day-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,.15);
+    border-radius:14px;
+    padding:12px 18px;
+    color:white;
+}
+
+.day-card img{
+    width:40px;
+}
+
+.day-name{
+    width:100px;
+    font-weight:600;
+}
+
+.day-temp{
+    font-weight:500;
+}
+
+/* Rain */
+
+#rain,
+#snow{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+}
+
+.drop{
+    position:absolute;
+    width:2px;
+    height:60px;
+    background:rgba(255,255,255,.8);
+    animation:rainFall linear infinite;
+}
+
+@keyframes rainFall{
+
+    from{
+        transform:translateY(-120px);
+    }
+
+    to{
+        transform:translateY(110vh);
+    }
+
+}
+
+/* Snow */
+
+.flake{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+    opacity:.9;
+    animation:snowFall linear infinite;
+}
+
+@keyframes snowFall{
+
+    from{
+        transform:translateY(-50px);
+    }
+
+    to{
+        transform:translateY(105vh);
+    }
+
+}
+
+/* Fade Animation */
+
+.fade{
+    animation:fade .4s ease;
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    body{
+        padding:15px;
+    }
+
+    .app{
+        padding:22px;
+    }
+
+    header h1{
+        font-size:1.6rem;
+    }
+
+    .search-area{
+        flex-direction:column;
+    }
+
+    .search-area button{
+        width:100%;
+    }
+
+    .day-card{
+        font-size:14px;
+    }
+
+}
